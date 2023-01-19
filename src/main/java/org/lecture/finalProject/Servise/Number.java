@@ -7,15 +7,8 @@ public class Number {
     List<Integer> segments = new ArrayList<>();
     List<String> numberInText;
 
-    public Number(double num) {
-        int num_tmp = (int) (num * 100);
-        segments.add(num_tmp % 100);
-        num_tmp = (int) num;
-        while (num_tmp > 1000) {
-            segments.add(num_tmp % 1000);
-            num_tmp = num_tmp / 1000;
-        }
-        segments.add(num_tmp);
+    public Number(List segments) {
+        this.segments = segments;
     }
 
     public List<Integer> getSegments() {
@@ -25,8 +18,14 @@ public class Number {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (String number : numberInText) {
-            result.append(number).append(" ");
+        int size = numberInText.size();
+        for (int i = 0; i < size; i++) {
+            if (i == size - 1) {
+                result.append(numberInText.get(i));
+            } else {
+                result.append(numberInText.get(i)).append(" ");
+            }
+
         }
         return result.toString();
     }

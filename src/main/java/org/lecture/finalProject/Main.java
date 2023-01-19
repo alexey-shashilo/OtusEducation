@@ -1,9 +1,9 @@
 package org.lecture.finalProject;
 
-import org.lecture.finalProject.Servise.Currency;
-import org.lecture.finalProject.Servise.CurrencyManagerConsole;
+import org.lecture.finalProject.Servise.*;
 import org.lecture.finalProject.Servise.Number;
-import org.lecture.finalProject.Servise.Service;
+
+import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,11 +35,14 @@ public class Main {
             string = new String[]{"триллион", "триллиона", "триллионов"};
             currencyManagerConsole.addCashUnits(currency, string);
 
-            Number number = new Number(12);
+            CreatingNumber creatingNumber = new CreatingNumberConsole();
+            Number number = creatingNumber.create(new BigDecimal("1111111111112191278"));
             number.setNumberInText(service.convertingANumberToAString(number, currency));
             System.out.println(number);
 
-        } catch (Exception e) {
+        } catch (IndexOutOfBoundsException e){
+            System.out.println("There was some IndexOutOfBoundsException");
+        }catch (Exception e) {
             System.out.println("There was some exception");
         }
     }

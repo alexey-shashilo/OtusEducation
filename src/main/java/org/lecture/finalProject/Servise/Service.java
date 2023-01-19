@@ -47,7 +47,7 @@ public class Service {
         return result;
     }
 
-    public String declensionOfANounAfterANumeral(int segment, Currency currency, int index) {
+    public String declensionOfANounAfterANumeral(int segment, Currency currency, int index) throws IndexOutOfBoundsException {
         double num10 = segment % 100;
         double num1 = segment % 10;
         if (num10 >= 10 && num10 <= 20) {
