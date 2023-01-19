@@ -1,7 +1,8 @@
 package org.lecture.finalProject.Servise;
 
 public class Service {
-    public String declensionOfANounAfterANumeral(double number, Noun noun) {
-
+    public String convertingANumberToAString(Number number, Currency currency){
+        String result = "";
+        return result;
     }
 }
