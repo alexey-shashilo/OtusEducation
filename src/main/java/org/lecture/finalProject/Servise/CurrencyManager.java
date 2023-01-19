@@ -5,5 +5,5 @@ public interface CurrencyManager {
 
     void addNumerals(Currency currency, String[] numeral);
 
-    Currency create();
+    Currency create(String rub);
 }

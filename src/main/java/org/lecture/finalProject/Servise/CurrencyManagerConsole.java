@@ -20,9 +20,13 @@ public class CurrencyManagerConsole implements CurrencyManager {
         currency.setNumerals(numerals);
     }
 
-    @Override
+
     public Currency create() {
         return new Currency(nextLine("Enter currency code"));
+    }
+    @Override
+    public Currency create(String rub) {
+        return new Currency(rub);
     }
 
     private String nextLine(String string) {
