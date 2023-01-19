@@ -24,6 +24,7 @@ public class CurrencyManagerConsole implements CurrencyManager {
     public Currency create() {
         return new Currency(nextLine("Enter currency code"));
     }
+
     @Override
     public Currency create(String rub) {
         return new Currency(rub);
