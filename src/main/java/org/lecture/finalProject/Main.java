@@ -36,7 +36,7 @@ public class Main {
             currencyManagerConsole.addCashUnits(currency, string);
 
             CreatingNumber creatingNumber = new CreatingNumberConsole();
-            Number number = creatingNumber.create(new BigDecimal("1111111111112191278"));
+            Number number = creatingNumber.create("122122122122122");
             number.setNumberInText(service.convertingANumberToAString(number, currency));
             System.out.println(number);
 

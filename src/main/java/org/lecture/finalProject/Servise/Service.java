@@ -19,7 +19,7 @@ public class Service {
 
             while (segment != 0) {
                 if (segment < 10) {
-                    if (i != 1) {
+                    if (i == 0) {
                         subResult.append(currency.getNumerals().get(0)[segment]).append(" ");
                     } else {
                         subResult.append(currency.getNumerals().get(1)[segment]).append(" ");

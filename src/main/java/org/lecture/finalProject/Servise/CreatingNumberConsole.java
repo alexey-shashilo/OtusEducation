@@ -6,7 +6,8 @@ import java.util.List;
 
 public class CreatingNumberConsole implements CreatingNumber {
     @Override
-    public Number create(BigDecimal num) {
+    public Number create(String num1) {
+        BigDecimal num = new BigDecimal(num1);
         List<Integer> segments = new ArrayList<>();
 
         long num_tmp = num.multiply(BigDecimal.valueOf(100)).longValue();
