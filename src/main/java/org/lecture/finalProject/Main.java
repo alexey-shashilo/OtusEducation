@@ -41,9 +41,9 @@ public class Main {
             System.out.println(number);
 
         } catch (IndexOutOfBoundsException e){
-            System.out.println("There was some IndexOutOfBoundsException");
+            System.err.println("The transferred number is larger than expected, it is necessary to expand the dictionary of number division units");
         }catch (Exception e) {
-            System.out.println("There was some exception");
+            System.err.println("There was some exception");
         }
     }
 }
