@@ -13,13 +13,15 @@ public class Service {
             StringBuilder subResult = new StringBuilder();
             if (segment == 0 && i != 0 && i != 1) {
                 continue;
-            } else if (segment == 0) {
-                subResult.append(currency.getNumerals().get(0)[0]).append(" ");
+            } else {
+                if (segment != 0 || segments.size() <= 2 || i != 1) {
+                    if (segment == 0) subResult.append(currency.getNumerals().get(0)[0]).append(" ");
+                }
             }
 
             while (segment != 0) {
                 if (segment < 10) {
-                    if (i == 0) {
+                    if (i != 1) {
                         subResult.append(currency.getNumerals().get(0)[segment]).append(" ");
                     } else {
                         subResult.append(currency.getNumerals().get(1)[segment]).append(" ");
@@ -60,6 +62,4 @@ public class Service {
             return currency.getCashUnits().get(index)[2];
         }
     }
-
-
 }

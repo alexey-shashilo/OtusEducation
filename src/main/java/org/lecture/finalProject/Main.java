@@ -34,7 +34,7 @@ public class Main {
             currencyManagerConsole.addCashUnits(currency, string);
 
             CreatingNumber creatingNumber = new CreatingNumberConsole();
-            Number number = creatingNumber.create("122122122122122");
+            Number number = creatingNumber.create("191191.91");
             number.setNumberInText(service.convertingANumberToAString(number, currency));
             System.out.println(number);
 

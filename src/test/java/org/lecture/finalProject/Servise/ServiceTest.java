@@ -1,7 +1,5 @@
 package org.lecture.finalProject.Servise;
 
-import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ServiceTest {
@@ -36,10 +34,47 @@ class ServiceTest {
         currencyManagerConsole.addCashUnits(currency, string);
 
         CreatingNumber creatingNumber = new CreatingNumberConsole();
-        Number number = creatingNumber.create(new BigDecimal("191278.19"));
+
+        Number number = creatingNumber.create("0");
         number.setNumberInText(service.convertingANumberToAString(number, currency));
-        String resultMethod = number.toString();
-        String expectedResult = "сто девяносто одна тысяча двести семьдесят восемь рублей девятнадцать копеек";
-        assertEquals(resultMethod, expectedResult);
+        String Expected = number.toString();
+        String Actual = "ноль рублей ноль копеек";
+        assertEquals(Expected, Actual);
+
+        number = creatingNumber.create("191278.19");
+        number.setNumberInText(service.convertingANumberToAString(number, currency));
+        Expected = number.toString();
+        Actual = "сто девяносто одна тысяча двести семьдесят восемь рублей девятнадцать копеек";
+        assertEquals(Expected, Actual);
+
+        number = creatingNumber.create("100000000000.00");
+        number.setNumberInText(service.convertingANumberToAString(number, currency));
+        Expected = number.toString();
+        Actual = "сто миллиардов рублей ноль копеек";
+        assertEquals(Expected, Actual);
+
+        number = creatingNumber.create("421583.70");
+        number.setNumberInText(service.convertingANumberToAString(number, currency));
+        Expected = number.toString();
+        Actual = "четыреста двадцать одна тысяча пятьсот восемьдесят три рубля семьдесят копеек";
+        assertEquals(Expected, Actual);
+
+        number = creatingNumber.create("560834005.07");
+        number.setNumberInText(service.convertingANumberToAString(number, currency));
+        Expected = number.toString();
+        Actual = "пятьсот шестьдесят миллионов восемьсот тридцать четыре тысячи пять рублей семь копеек";
+        assertEquals(Expected, Actual);
+
+        number = creatingNumber.create("0.01");
+        number.setNumberInText(service.convertingANumberToAString(number, currency));
+        Expected = number.toString();
+        Actual = "ноль рублей одна копейка";
+        assertEquals(Expected, Actual);
+
+        number = creatingNumber.create("0000000000.00");
+        number.setNumberInText(service.convertingANumberToAString(number, currency));
+        Expected = number.toString();
+        Actual = "ноль рублей ноль копеек";
+        assertEquals(Expected, Actual);
     }
 }
