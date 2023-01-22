@@ -50,6 +50,9 @@ public class Service {
     }
 
     public String declensionOfANounAfterANumeral(int segment, Currency currency, int index) throws IndexOutOfBoundsException {
+        try {
+
+
         double num10 = segment % 100;
         double num1 = segment % 10;
         if (num10 >= 10 && num10 <= 20) {
@@ -60,6 +63,9 @@ public class Service {
             return currency.getCashUnits().get(index)[1];
         } else {
             return currency.getCashUnits().get(index)[2];
+        }
+        } catch (IndexOutOfBoundsException exception){
+            throw new IndexOutOfBoundsException();
         }
     }
 }
