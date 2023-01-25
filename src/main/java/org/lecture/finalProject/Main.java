@@ -32,9 +32,15 @@ public class Main {
             currencyManagerConsole.addCashUnits(currency, string);
             string = new String[]{"триллион", "триллиона", "триллионов"};
             currencyManagerConsole.addCashUnits(currency, string);
+            string = new String[]{"квадриллион", "квадриллиона", "квадриллионов"};
+            currencyManagerConsole.addCashUnits(currency, string);
+            string = new String[]{"квинтиллион", "квинтиллиона", "квинтиллионов"};
+            currencyManagerConsole.addCashUnits(currency, string);
+            string = new String[]{"секстиллион", "секстиллиона", "секстиллионов"};
+            currencyManagerConsole.addCashUnits(currency, string);
 
             CreatingNumber creatingNumber = new CreatingNumberConsole();
-            Number number = creatingNumber.create("191191.91");
+            Number number = creatingNumber.create("9223372036854775809111");
             number.setNumberInText(service.convertingANumberToAString(number, currency));
             System.out.println(number);
 

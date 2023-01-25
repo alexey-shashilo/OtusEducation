@@ -1,6 +1,7 @@
 package org.lecture.finalProject.Servise;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +11,17 @@ public class CreatingNumberConsole implements CreatingNumber {
         BigDecimal num = new BigDecimal(num1);
         List<Integer> segments = new ArrayList<>();
 
-        long num_tmp = num.multiply(BigDecimal.valueOf(100)).longValue();
-        segments.add((int) (num_tmp % 100));
-        num_tmp = num.longValue();
-        while (num_tmp > 1000) {
-            segments.add((int) (num_tmp % 1000));
-            num_tmp = num_tmp / 1000;
+        BigInteger num_tmp = num.multiply(BigDecimal.valueOf(100)).toBigInteger();
+        BigInteger cent = num_tmp.mod(BigInteger.valueOf(100));
+        segments.add(cent.intValue());
+        num_tmp = num_tmp.divide(BigInteger.valueOf(100));
+
+        while (num_tmp.compareTo(BigInteger.valueOf(1000)) > 0) {
+            cent = num_tmp.mod(BigInteger.valueOf(1000));
+            segments.add(cent.intValue());
+            num_tmp = num_tmp.divide(BigInteger.valueOf(1000));
         }
-        segments.add((int) num_tmp);
+        segments.add(num_tmp.intValue());
         return new Number(segments);
     }
 }
